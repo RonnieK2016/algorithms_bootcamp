@@ -104,6 +104,19 @@ public class LinkedList<T> {
         return val;
     }
 
+    public int indexOf(T value) {
+        int curIdx = 1;
+        Node curNode = head;
+        while(curNode != null) {
+            if(curNode.value.equals(value)) {
+                return curIdx;
+            }
+            curNode = curNode.next;
+            curIdx++;
+        }
+        return -1;
+    }
+
     public boolean remove(T value) {
         if(size == 0) {
             throw new NoSuchElementException("List is empty");

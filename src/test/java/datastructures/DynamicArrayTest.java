@@ -1,3 +1,5 @@
+package datastructures;
+
 import datastructures.DynamicArray;
 import org.junit.jupiter.api.Assertions;
 

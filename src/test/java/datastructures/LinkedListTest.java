@@ -119,4 +119,16 @@ class LinkedListTest {
         ls.remove();
         Assertions.assertTrue(ls.isEmpty());
     }
+
+    @Test
+    void indexOf() {
+        LinkedList<Integer> ls = new LinkedList<>();
+        Assertions.assertEquals(0, ls.size());
+        ls.addFirst(1);
+        ls.addFirst(2);
+        ls.addFirst(3);
+        Assertions.assertEquals(1, ls.indexOf(3));
+        Assertions.assertEquals(2, ls.indexOf(2));
+        Assertions.assertEquals(3, ls.indexOf(1));
+    }
 }
