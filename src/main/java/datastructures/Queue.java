@@ -18,7 +18,7 @@ public class Queue<T> {
     }
 
     public void add(T value) {
-        if((list.size() + 1) > capacity) {
+        if(this.capacity > 0 && ((list.size() + 1) > capacity)) {
             throw new IllegalStateException("Queue is full. Maximum size: " + this.capacity);
         }
 

@@ -1,23 +1,25 @@
 package datastructures;
 
-import datastructures.DynamicArray;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 class DynamicArrayTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void get() {
         DynamicArray<Integer> dr  = new DynamicArray<>();
-        dr.add(0);
-        dr.add(1);
-        dr.add(2);
+        for(int i = 0; i < 100; i++) {
+            dr.add(i);
+        }
 
-        Assertions.assertEquals(0, dr.get(0));
-        Assertions.assertEquals(1, dr.get(1));
-        Assertions.assertEquals(2, dr.get(2));
+        for(int i = 0; i < 100; i++) {
+            Assertions.assertEquals(i, dr.get(i));
+        }
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> dr.get(1000));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> dr.get(-10));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void insert() {
         DynamicArray<Integer> dr  = new DynamicArray<>();
         dr.add(0);
@@ -31,7 +33,7 @@ class DynamicArrayTest {
         Assertions.assertEquals(4, dr.get(4));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void set() {
         DynamicArray<Integer> dr  = new DynamicArray<>();
         dr.add(0);
@@ -44,7 +46,7 @@ class DynamicArrayTest {
         Assertions.assertEquals(4, dr.get(2));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void delete() {
         DynamicArray<Integer> dr  = new DynamicArray<>();
         dr.add(0);
@@ -57,7 +59,7 @@ class DynamicArrayTest {
         Assertions.assertTrue(dr.isEmpty());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void isEmpty() {
         DynamicArray<Integer> dr  = new DynamicArray<>();
 
@@ -68,7 +70,7 @@ class DynamicArrayTest {
         Assertions.assertFalse(dr.isEmpty());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void size() {
         DynamicArray<Integer> dr  = new DynamicArray<>();
 
@@ -80,4 +82,10 @@ class DynamicArrayTest {
         dr.delete(2);
         Assertions.assertEquals(2 ,dr.size());
     }
+
+    @Test
+    void illegalCapacity() {
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  new DynamicArray<>(0));
+    }
+
 }

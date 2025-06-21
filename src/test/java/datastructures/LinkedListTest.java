@@ -131,4 +131,17 @@ class LinkedListTest {
         Assertions.assertEquals(2, ls.indexOf(2));
         Assertions.assertEquals(3, ls.indexOf(1));
     }
+
+    @Test
+    void removeWithValue() {
+        LinkedList<Integer> ls = new LinkedList<>();
+        Assertions.assertEquals(0, ls.size());
+        for(int i = 0; i < 100; i++) {
+            ls.add(i);
+        }
+        Assertions.assertEquals(100, ls.size());
+        Assertions.assertTrue(ls.remove(55));
+        Assertions.assertTrue(ls.remove(34));
+        Assertions.assertTrue(ls.remove(12));
+    }
 }

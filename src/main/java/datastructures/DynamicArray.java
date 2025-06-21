@@ -7,7 +7,7 @@ public class DynamicArray<T> {
     private int size = 0;
 
     public DynamicArray() {
-        values = new Object[DEFAULT_CAPACITY];
+        this(DEFAULT_CAPACITY);
     }
 
     public DynamicArray(int capacity) {
@@ -57,7 +57,7 @@ public class DynamicArray<T> {
 
         Object value = values[index];
 
-        if(index == size) {
+        if((index - 1) == size) {
             values[index] = null;
         }
         else {
