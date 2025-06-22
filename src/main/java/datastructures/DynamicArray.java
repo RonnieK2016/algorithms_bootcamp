@@ -19,7 +19,7 @@ public class DynamicArray<T> {
 
     private void checkIndex(int index) {
         if(index > size || index < 0) {
-            throw new IndexOutOfBoundsException("Cannot delete element at index " + index);
+            throw new IndexOutOfBoundsException("Cannot access element at index " + index);
         }
     }
 
@@ -57,7 +57,7 @@ public class DynamicArray<T> {
 
         Object value = values[index];
 
-        if((index - 1) == size) {
+        if((index + 1) == size) {
             values[index] = null;
         }
         else {
